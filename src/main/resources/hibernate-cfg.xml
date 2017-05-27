@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/test</property>
+		<property name="hibernate.connection.username">pankaj</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.show_sql">true</property>
+
+		<!-- define the Factory class for Second level caching -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+
+
+		<!-- enable second level cache -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<!-- enable query cache -->
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<!-- define the EHCache configuration file location -->
+		<property name="net.sf.ehcache.configurationResourceName">/myehcache.xml</property>
+
+		<mapping class="com.hibernate.model.Employee" />
+		<mapping class="com.hibernate.model.Address" />
+	</session-factory>
+</hibernate-configuration>
